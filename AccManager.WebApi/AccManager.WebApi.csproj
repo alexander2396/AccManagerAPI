@@ -1,0 +1,23 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.JwtBearer" Version="2.1.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AccManager.Common\AccManager.Common.csproj" />
+    <ProjectReference Include="..\AccManager.Core\AccManager.Core.csproj" />
+    <ProjectReference Include="..\AccManager.DataAccess\AccManager.DataAccess.csproj" />
+    <ProjectReference Include="..\AccManager.Models\AccManager.Models.csproj" />
+  </ItemGroup>
+
+</Project>
