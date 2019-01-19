@@ -6,6 +6,6 @@ namespace AccManager.Core.Services.Interfaces
 {
     public interface IAccountService
     {
-        Task<RequestResult<TokenResult>> GetToken(string email, string password);
+        Task<RequestResult<TokenResult>> GetTokenAsync(string email, string password);
     }
 }

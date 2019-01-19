@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Identity;
 using AccManager.DataAccess.EF.Context;
 using AccManager.Common.Settings;
 using AccManager.Models.BusinessModels.Account;
+using AccManager.DataAccess.UOW;
 
 namespace AccManager.DataAccess.Ioc
 {
@@ -28,6 +29,8 @@ namespace AccManager.DataAccess.Ioc
                 options.Password.RequireDigit = false;
 
             }).AddEntityFrameworkStores<IdentityDbContext>();
+
+            services.AddTransient<IUnitOfWork, UnitOfWork>();
         }
     }
 }

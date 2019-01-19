@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using AccManager.Common.Settings;
 using AccManager.DataAccess.Ioc;
 using AccManager.Core.Ioc;
+using AccManager.WebApi.Filters;
 
 namespace AccManager.WebApi.Configuration
 {
@@ -17,6 +18,8 @@ namespace AccManager.WebApi.Configuration
 
             services.RegisterDataAccess(appSettings);
             services.RegisterCore();
+
+            services.AddScoped<ValidationFilterAttribute>();
 
             services.AddAuthentication(options =>
             {

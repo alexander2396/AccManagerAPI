@@ -1,13 +1,10 @@
-﻿using System;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
-using Microsoft.AspNetCore.Authentication.JwtBearer;
-using Microsoft.AspNetCore.Http;
 using AccManager.Core.Services.Interfaces;
 using AccManager.Common.RequestResult;
 using AccManager.Models.ViewModels.Account;
+using AccManager.WebApi.Filters;
 
 namespace AccManager.WebApi.Controllers
 {
@@ -23,10 +20,10 @@ namespace AccManager.WebApi.Controllers
 
         [HttpPost]
         [Route("token")]
-        public async Task<IActionResult> Token([FromBody]LoginViewModel model)
+        [ServiceFilter(typeof(ValidationFilterAttribute))]
+        public async Task<IActionResult> TokenAsync([FromBody]LoginViewModel model)
         {
-            RequestResult<TokenResult> result = await _accountService.GetToken(model.Email, model.Password);
-
+            RequestResult<TokenResult> result = await _accountService.GetTokenAsync(model.Email, model.Password);
             return ReturnResult(result);
         }
 

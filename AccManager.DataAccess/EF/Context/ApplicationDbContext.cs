@@ -11,6 +11,7 @@ namespace AccManager.DataAccess.EF.Context
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new RoleConfiguration());
+            builder.ApplyConfiguration(new RolePermissionConfiguration());
         }
     }
 }

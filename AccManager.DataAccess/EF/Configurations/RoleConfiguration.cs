@@ -9,6 +9,7 @@ namespace AccManager.DataAccess.EF.Configurations
         public void Configure(EntityTypeBuilder<Role> builder)
         {
             builder.ToTable("Role");
+            builder.HasMany(r => r.Permissions).WithOne(rp => rp.Role);
         }
     }
 }

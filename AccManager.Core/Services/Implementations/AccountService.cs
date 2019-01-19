@@ -27,7 +27,7 @@ namespace AccManager.Core.Services.Implementations
             _appSettings = appSettings;
         }
 
-        public async Task<RequestResult<TokenResult>> GetToken(string email, string password)
+        public async Task<RequestResult<TokenResult>> GetTokenAsync(string email, string password)
         {
             var result = new RequestResult<TokenResult>();
 

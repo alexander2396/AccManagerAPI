@@ -2,6 +2,8 @@
 {
     public enum Permission
     {
-        Admin
+        Admin,
+        ManageRoles,
+        ManageUsers
     }
 }

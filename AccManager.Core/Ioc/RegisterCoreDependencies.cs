@@ -9,6 +9,7 @@ namespace AccManager.Core.Ioc
         public static IServiceCollection RegisterCore(this IServiceCollection services)
         {
             services.AddTransient<IAccountService, AccountService>();
+            services.AddTransient<IRoleService, RoleService>();
 
             return services;
         }
