@@ -1,10 +1,10 @@
-﻿using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
+﻿using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
-using AccManager.Models.BusinessModels.Account;
 
 namespace AccManager.DataAccess.EF.Context
 {
-    public class IdentityDbContext : IdentityDbContext<User>
+    public class IdentityDbContext : IdentityDbContext<IdentityUser>
     {
         public IdentityDbContext(DbContextOptions<IdentityDbContext> options) : base(options)
         {

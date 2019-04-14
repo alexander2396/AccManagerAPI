@@ -27,18 +27,18 @@ namespace AccManager.Models.ViewModels.Account
             return this;
         }
 
-        public override Role UpdateEntity(Role role)
+        public override Role UpdateEntity(Role entity)
         {
-            role = base.UpdateEntity(role);
+            entity = base.UpdateEntity(entity);
 
-            role.Permissions = Permissions.Select(p => new RolePermission()
+            entity.Permissions = Permissions.Select(p => new RolePermission()
             {
-                RoleId = role.Id,
+                RoleId = entity.Id,
                 Permission = p
             })
             .ToList();
 
-            return role;
+            return entity;
         }
     }
 }

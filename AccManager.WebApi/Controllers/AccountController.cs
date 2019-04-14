@@ -4,7 +4,7 @@ using Microsoft.AspNetCore.Authorization;
 using AccManager.Core.Services.Interfaces;
 using AccManager.Common.RequestResult;
 using AccManager.Models.ViewModels.Account;
-using AccManager.WebApi.Filters;
+using AccManager.WebApi.Attributes;
 
 namespace AccManager.WebApi.Controllers
 {

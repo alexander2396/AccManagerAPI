@@ -48,11 +48,15 @@ namespace AccManager.Core.Services.Implementations
 
             try
             {
-                Role role = await _uow.Repository<Role>().GetByIdAsync(id);
+                Role role = await _uow.Repository<Role>()
+                    .GetQueryable()
+                    .Include(r => r.Permissions)
+                    .FirstOrDefaultAsync(r => r.Id == id);
 
                 if (role == null)
                 {
                     result.StatusCode = StatusCodes.Status400BadRequest;
+                    result.Message = $"Role with Id = {id} not found";
                     return result;
                 }
 
@@ -95,7 +99,10 @@ namespace AccManager.Core.Services.Implementations
 
             try
             {
-                Role role = await _uow.Repository<Role>().GetByIdAsync(roleViewModel.Id);
+                Role role = await _uow.Repository<Role>()
+                    .GetQueryable()
+                    .Include(r => r.Permissions)
+                    .FirstOrDefaultAsync(r => r.Id == roleViewModel.Id);
 
                 if (role == null)
                 {

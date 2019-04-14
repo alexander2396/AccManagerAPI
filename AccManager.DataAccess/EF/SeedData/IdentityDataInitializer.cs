@@ -4,7 +4,6 @@ using System.Linq;
 using System.Security.Claims;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
-using AccManager.Models.BusinessModels.Account;
 using AccManager.Common.Constants;
 using AccManager.Common.Enums;
 
@@ -14,12 +13,12 @@ namespace AccManager.DataAccess.EF.SeedData
     {
         public static async Task SeedData(IServiceProvider services)
         {
-            UserManager<User> userManager = services.GetRequiredService<UserManager<User>>();
+            UserManager<IdentityUser> userManager = services.GetRequiredService<UserManager<IdentityUser>>();
 
-            User user = await userManager.FindByNameAsync(AppConstants.ADMIN_USER_NAME);
+            IdentityUser user = await userManager.FindByNameAsync(AppConstants.ADMIN_USER_NAME);
             if (user == null)
             {
-                user = new User()
+                user = new IdentityUser()
                 {
                     UserName = AppConstants.ADMIN_USER_NAME,
                     Email = AppConstants.ADMIN_USER_EMAIL

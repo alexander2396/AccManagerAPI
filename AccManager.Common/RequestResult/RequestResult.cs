@@ -15,6 +15,27 @@ namespace AccManager.Common.RequestResult
         {
             StatusCode = statusCode;
         }
+
+        public void SetStatusOK()
+        {
+            StatusCode = StatusCodes.Status200OK;
+        }
+
+        public void SetStatusBadRequest()
+        {
+            StatusCode = StatusCodes.Status400BadRequest;
+        }
+
+        public void SetStatusInternalServerError()
+        {
+            StatusCode = StatusCodes.Status500InternalServerError;
+        }
+
+        public void SetStatusInternalServerError(string message)
+        {
+            StatusCode = StatusCodes.Status500InternalServerError;
+            Message = message;
+        }
     }
 
     public class RequestResult<T> : RequestResult

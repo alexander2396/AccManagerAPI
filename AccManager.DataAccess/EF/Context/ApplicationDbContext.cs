@@ -12,6 +12,7 @@ namespace AccManager.DataAccess.EF.Context
         {
             builder.ApplyConfiguration(new RoleConfiguration());
             builder.ApplyConfiguration(new RolePermissionConfiguration());
+            builder.ApplyConfiguration(new UserConfiguration());
         }
     }
 }

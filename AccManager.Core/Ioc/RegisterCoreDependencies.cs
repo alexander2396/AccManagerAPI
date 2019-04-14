@@ -10,6 +10,7 @@ namespace AccManager.Core.Ioc
         {
             services.AddTransient<IAccountService, AccountService>();
             services.AddTransient<IRoleService, RoleService>();
+            services.AddTransient<IUserService, UserService>();
 
             return services;
         }

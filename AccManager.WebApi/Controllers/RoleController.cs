@@ -4,8 +4,9 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Authorization;
 using AccManager.Core.Services.Interfaces;
 using AccManager.Common.RequestResult;
+using AccManager.Common.Enums;
 using AccManager.Models.ViewModels.Account;
-using AccManager.WebApi.Filters;
+using AccManager.WebApi.Attributes;
 
 namespace AccManager.WebApi.Controllers
 {
@@ -21,6 +22,7 @@ namespace AccManager.WebApi.Controllers
         }
 
         [HttpGet]
+        [AuthorizePermissions(Permission.ManageRoles)]
         public async Task<IActionResult> GetListAsync()
         {
             RequestResult<List<RoleViewModel>> result = await _roleService.GetListAsync();
@@ -29,6 +31,7 @@ namespace AccManager.WebApi.Controllers
 
         [HttpGet]
         [Route("{id}")]
+        [AuthorizePermissions(Permission.ManageRoles)]
         public async Task<IActionResult> GetByIdAsync(int id)
         {
             RequestResult<RoleViewModel> result = await _roleService.GetByIdAsync(id);
@@ -36,6 +39,7 @@ namespace AccManager.WebApi.Controllers
         }
 
         [HttpPost]
+        [AuthorizePermissions(Permission.ManageRoles)]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> CreateAsync([FromBody]RoleViewModel model)
         {
@@ -44,6 +48,7 @@ namespace AccManager.WebApi.Controllers
         }
 
         [HttpPut]
+        [AuthorizePermissions(Permission.ManageRoles)]
         [ServiceFilter(typeof(ValidationFilterAttribute))]
         public async Task<IActionResult> UpdateAsync([FromBody]RoleViewModel model)
         {
@@ -52,6 +57,7 @@ namespace AccManager.WebApi.Controllers
         }
 
         [HttpDelete]
+        [AuthorizePermissions(Permission.ManageRoles)]
         public async Task<IActionResult> DeleteAsync(int id)
         {
             RequestResult result = await _roleService.DeleteAsync(id);

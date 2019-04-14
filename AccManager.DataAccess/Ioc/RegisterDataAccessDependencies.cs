@@ -22,7 +22,7 @@ namespace AccManager.DataAccess.Ioc
                 options.UseSqlServer(appSettings.ConnectionStrings.ACC_MANAGER_IDENTITY, b => {
                     b.MigrationsAssembly("AccManager.DataAccess");
                 }));
-            services.AddIdentity<User, IdentityRole>(options => {
+            services.AddIdentity<IdentityUser, IdentityRole>(options => {
                 options.Password.RequireNonAlphanumeric = false;
                 options.Password.RequireUppercase = false;
                 options.Password.RequireLowercase = false;

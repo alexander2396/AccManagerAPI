@@ -6,7 +6,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using AccManager.Common.Settings;
 using AccManager.DataAccess.Ioc;
 using AccManager.Core.Ioc;
-using AccManager.WebApi.Filters;
+using AccManager.WebApi.Attributes;
 
 namespace AccManager.WebApi.Configuration
 {

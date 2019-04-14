@@ -4,5 +4,6 @@
     {
         ConnectionStrings ConnectionStrings { get; }
         AuthOptions AuthOptions { get; }
+        SmtpConnection SmtpConnection { get; }
     }
 }

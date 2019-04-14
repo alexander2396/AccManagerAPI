@@ -16,11 +16,11 @@ namespace AccManager.Core.Services.Implementations
 {
     public class AccountService : IAccountService
     {
-        private readonly UserManager<User> _userManager;
-        private readonly SignInManager<User> _singInManager;
+        private readonly UserManager<IdentityUser> _userManager;
+        private readonly SignInManager<IdentityUser> _singInManager;
         private readonly IAppSettings _appSettings;
 
-        public AccountService(UserManager<User> userManager, SignInManager<User> singInManager, IAppSettings appSettings)
+        public AccountService(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> singInManager, IAppSettings appSettings)
         {
             _userManager = userManager;
             _singInManager = singInManager;
@@ -72,7 +72,7 @@ namespace AccManager.Core.Services.Implementations
 
         private async Task<ClaimsIdentity> GetIdentity(string email, string password)
         {
-            User user = await _userManager.FindByEmailAsync(email);
+            IdentityUser user = await _userManager.FindByEmailAsync(email);
 
             if (user != null && (await _singInManager.PasswordSignInAsync(user, password, false, false)).Succeeded)
             {

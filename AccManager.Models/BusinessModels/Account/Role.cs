@@ -8,5 +8,6 @@ namespace AccManager.Models.BusinessModels.Account
         public string Name { get; set; }
 
         public List<RolePermission> Permissions { get; set; }
+        public List<User> Users { get; set; }
     }
 }

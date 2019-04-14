@@ -3,7 +3,7 @@ using Microsoft.AspNetCore.Mvc.Filters;
 using System.Linq;
 using AccManager.Models.BusinessModels;
 
-namespace AccManager.WebApi.Filters
+namespace AccManager.WebApi.Attributes
 {
     public class ValidationFilterAttribute : IActionFilter
     {
